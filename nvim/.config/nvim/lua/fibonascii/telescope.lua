@@ -14,6 +14,9 @@ require("telescope").setup({
         file_previewer = require("telescope.previewers").vim_buffer_cat.new,
         grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
         qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
+        file_ignore_patterns = {
+         "./plugged/*"
+    },
 
         mappings = {
             i = {
@@ -27,9 +30,22 @@ require("telescope").setup({
             override_generic_sorter = false,
             override_file_sorter = true,
         },
-    },
+    }
 })
 
 require("telescope").load_extension("fzy_native")
+--require("telescope").load_extension("git_worktree")
 
-local function
+--[[local M = {}]]
+--[[M.search_dotfiles = function()]]
+    --[[require("telescope.builtin").find_files{]]
+        --[[cwd = '~/.config/nvim/',]]
+        --[[prompt_tile = ' << .dotfiles']]
+    --[[}]]
+
+--[[local M = {}]]
+--[[M.search_terraform_project = function()]]
+    --[[require("telescope.builtin").find_files({]]
+        --[[prompt_title = "<< Terraform >>",]]
+
+    --[[})]]
