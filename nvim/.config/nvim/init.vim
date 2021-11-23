@@ -1,4 +1,18 @@
-" ######### Vundle Configuration ##########
+set path+=**
+
+set wildmode=longest,list,full
+set wildmenu
+
+" Ignore files
+set wildignore+=*.pyc
+set wildignore+=*_build/*
+set wildignore+=**/coverage/*
+set wildignore+=**/node_modules/*
+set wildignore+=**/android/*
+set wildignore+=**/ios/*
+set wildignore+=**/.git/*
+
+" ######### Vim-Plug Configuration ##########
 
 filetype off                  " required
 
@@ -35,11 +49,15 @@ Plug 'ThePrimeagen/harpoon'
 
 " ---- LSP -------------------
 "
-Plug 'fatih/vim-go'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'fatih/vim-go'
 Plug 'hashivim/vim-terraform'
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
 
-" ------ Editing ---------------
+
+
+"" ------ Editing ---------------
 Plug 'preservim/nerdcommenter'
 Plug 'rstacruz/vim-closer'
 
@@ -48,11 +66,15 @@ Plug 'rstacruz/vim-closer'
 call plug#end()            " required
 filetype plugin indent on    " required
 
-lua require("telescope").load_extension("git_worktree")
 
+lua require("fibonascii.telescope")
+lua require("fibonascii.harpoon")
 
-" To ignore plugin indent changes, insteadr FAQ
+lua << EOF
+require'lspconfig'.pyright.setup{}
+EOF
 
+lua require("fibonascii.completion")
 "" ##########  Set Defaults ##########
 
 "Disable compatibility with vi
@@ -249,7 +271,7 @@ nnoremap <leader>0 :lua require("harpoon.ui").nav_file(0)<cr>
 " ########### Telescope Config ##############
 "
 "
-
+nnoremap <leader>fd <cmd>lua require("telescope.builtin").find_files{ cwd = '~/.config/nvim/' }<cr>
 
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
