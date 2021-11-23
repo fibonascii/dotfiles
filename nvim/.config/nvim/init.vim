@@ -66,15 +66,12 @@ Plug 'rstacruz/vim-closer'
 call plug#end()            " required
 filetype plugin indent on    " required
 
-
-lua require("fibonascii.telescope")
-lua require("fibonascii.harpoon")
+lua require("fibonascii")
 
 lua << EOF
 require'lspconfig'.pyright.setup{}
 EOF
 
-lua require("fibonascii.completion")
 "" ##########  Set Defaults ##########
 
 "Disable compatibility with vi
@@ -284,6 +281,9 @@ nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+
+nnoremap <leader>gdc <cmd>vim.lsp.buf.declaration()<cr> 
+
 
 " Git Worktree
 nnoremap <leader>gwt <cmd> lua require('telescope').extensions.git_worktree.create_git_worktree()<cr>
