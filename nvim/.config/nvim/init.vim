@@ -8,8 +8,7 @@ set wildignore+=*.pyc
 set wildignore+=*_build/*
 set wildignore+=**/coverage/*
 set wildignore+=**/node_modules/*
-set wildignore+=**/android/*
-set wildignore+=**/ios/*
+set wildignore+=**/android/* set wildignore+=**/ios/*
 set wildignore+=**/.git/*
 
 " ######### Vim-Plug Configuration ##########
@@ -250,40 +249,7 @@ nnoremap <leader>cr :!conda run -n $(fetch-conda-env.sh) python
 " Python comands. Using sn for Snake HAHA c wat I did
 
 
-" ########## Harpoon Config ###########
 "
-nnoremap <leader>hp :lua require("harpoon.mark").add_file()<cr>
-nnoremap <leader>hh :lua require("harpoon.ui").toggle_quick_menu()<cr>
-nnoremap <leader>1 :lua require("harpoon.ui").nav_file(1)<cr>
-nnoremap <leader>2 :lua require("harpoon.ui").nav_file(2)<cr>
-nnoremap <leader>3 :lua require("harpoon.ui").nav_file(3)<cr>
-nnoremap <leader>4 :lua require("harpoon.ui").nav_file(4)<cr>
-nnoremap <leader>5 :lua require("harpoon.ui").nav_file(5)<cr>
-nnoremap <leader>6 :lua require("harpoon.ui").nav_file(6)<cr>
-nnoremap <leader>7 :lua require("harpoon.ui").nav_file(7)<cr>
-nnoremap <leader>8 :lua require("harpoon.ui").nav_file(8)<cr>
-nnoremap <leader>9 :lua require("harpoon.ui").nav_file(9)<cr>
-nnoremap <leader>0 :lua require("harpoon.ui").nav_file(0)<cr>
-
-" ########### Telescope Config ##############
-"
-"
-nnoremap <leader>fd <cmd>lua require("telescope.builtin").find_files{ cwd = '~/.config/nvim/' }<cr>
-
-" Find files using Telescope command-line sugar.
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-
-" Using Lua functions
-nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
-nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
-nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
-
-nnoremap <leader>gdc <cmd>vim.lsp.buf.declaration()<cr> 
-
 
 " Git Worktree
 nnoremap <leader>gwt <cmd> lua require('telescope').extensions.git_worktree.create_git_worktree()<cr>

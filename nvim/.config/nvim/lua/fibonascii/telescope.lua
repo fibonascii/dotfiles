@@ -37,15 +37,10 @@ require("telescope").load_extension("fzy_native")
 --require("telescope").load_extension("git_worktree")
 
 --[[local M = {}]]
---[[M.search_dotfiles = function()]]
+--[[M.find_dotfiles = function()]]
     --[[require("telescope.builtin").find_files{]]
         --[[cwd = '~/.config/nvim/',]]
-        --[[prompt_tile = ' << .dotfiles']]
+        --[[prompt_title = 'fib >> .dotfiles']]
     --[[}]]
+--[[end]]
 
---[[local M = {}]]
---[[M.search_terraform_project = function()]]
-    --[[require("telescope.builtin").find_files({]]
-        --[[prompt_title = "<< Terraform >>",]]
-
-    --[[})]]
