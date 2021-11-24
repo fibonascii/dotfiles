@@ -36,11 +36,13 @@ require("telescope").setup({
 require("telescope").load_extension("fzy_native")
 --require("telescope").load_extension("git_worktree")
 
---[[local M = {}]]
---[[M.find_dotfiles = function()]]
-    --[[require("telescope.builtin").find_files{]]
-        --[[cwd = '~/.config/nvim/',]]
-        --[[prompt_title = 'fib >> .dotfiles']]
-    --[[}]]
---[[end]]
+local M = {}
+M.search_dotfiles = function()
+    require("telescope.builtin").find_files({
+        cwd = "~/.config/nvim/",
+        prompt_title = '__dotfiles__',
+        hidden = true,
+    })
+end
 
+return M
