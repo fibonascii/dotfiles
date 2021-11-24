@@ -14,9 +14,6 @@ require("telescope").setup({
         file_previewer = require("telescope.previewers").vim_buffer_cat.new,
         grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
         qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
-        file_ignore_patterns = {
-         "^plugged/"
-    },
 
         mappings = {
             i = {
@@ -42,7 +39,9 @@ M.search_dotfiles = function()
         cwd = "~/.config/nvim/",
         prompt_title = '__dotfiles__',
         hidden = true,
-    })
+        file_ignore_patterns = {
+         "^plugged/"
+    },})
 end
 
 return M
