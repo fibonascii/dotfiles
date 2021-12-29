@@ -8,7 +8,8 @@ set wildignore+=*.pyc
 set wildignore+=*_build/*
 set wildignore+=**/coverage/*
 set wildignore+=**/node_modules/*
-set wildignore+=**/android/* set wildignore+=**/ios/*
+set wildignore+=**/android/*
+set wildignore+=**/ios/*
 set wildignore+=**/.git/*
 
 " ######### Vim-Plug Configuration ##########
@@ -53,6 +54,9 @@ Plug 'hashivim/vim-terraform'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'simrat39/rust-tools.nvim'
+Plug 'mfussenegger/nvim-dap'
+
 
 
 
@@ -232,3 +236,22 @@ nnoremap <leader>vt :vert term<CR>
 
 " Plugin Keys
 nnoremap <leader>Pi :PlugInstall<CR>k
+
+
+"Terraform 
+nnoremap <leader>tp :! lids Terraform plan<CR>
+nnoremap <leader>tf :! lids Terraform fmt<CR>
+nnoremap <leader>ta :! lids Terraform apply -auto-approve<cr>
+
+" Conda 
+nnoremap <leader>ca :!conda activate 
+nnoremap <leader>cf :!conda list -e > requirements.txt<cr>
+nnoremap <leader>cfp :!conda list -e > 
+nnoremap <leader>ci :!pip install 
+nnoremap <leader>cel :!conda env list<cr>
+nnoremap <leader>cr :!conda run -n $(fetch-conda-env.sh) python 
+" Python comands. Using sn for Snake HAHA c wat I did
+
+" Git Worktree
+nnoremap <leader>gwt <cmd> lua require('telescope').extensions.git_worktree.create_git_worktree()<cr>
+nnoremap <leader>gct  <cmd> lua require('telescope').extensions.git_worktree.git_worktrees()<cr>

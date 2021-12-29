@@ -2,6 +2,8 @@ require("fibonascii.telescope")
 require("fibonascii.harpoon")
 require("fibonascii.lsp")
 require("fibonascii.completion")
+require("fibonascii.git-worktree")
+require("rust-tools").setup({})
 
 P = function(v)
   print(vim.inspect(v))
