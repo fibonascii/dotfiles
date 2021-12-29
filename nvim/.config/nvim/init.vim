@@ -75,6 +75,11 @@ lua << EOF
 require'lspconfig'.pyright.setup{}
 EOF
 
+lua <<EOF
+  require'lspconfig'.terraformls.setup{} 
+EOF
+autocmd BufWritePre *.tf lua vim.lsp.buf.formatting_sync()
+
 "" ##########  Set Defaults ##########
 
 "Disable compatibility with vi
@@ -229,6 +234,7 @@ nnoremap <leader>m :marks<CR>
 " Git
 nnoremap <leader>G :Git<CR>
 nnoremap <leader>Gs :Git status<CR>
+nnoremap <leader>Gp :G push<CR>
 
 " Terminal
 nnoremap <leader>t :ter<CR>
