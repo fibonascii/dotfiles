@@ -56,13 +56,16 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'simrat39/rust-tools.nvim'
 Plug 'mfussenegger/nvim-dap'
-
-
+Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
 
 
 "" ------ Editing ---------------
 Plug 'preservim/nerdcommenter'
 Plug 'rstacruz/vim-closer'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+
+
 
 
 " All of your Plugins must be added before the following line
@@ -78,6 +81,7 @@ EOF
 lua <<EOF
   require'lspconfig'.terraformls.setup{} 
 EOF
+
 autocmd BufWritePre *.tf lua vim.lsp.buf.formatting_sync()
 
 "" ##########  Set Defaults ##########
